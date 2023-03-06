@@ -39,18 +39,18 @@ ${\underset{#1}{#2}}$
 C را که یک منحنی جهت دار است مسیر حرکت مینامند.
 
 \begin{tikzpicture}[
-     x={(-0.5cm,-0.5cm)},y={(1cm,0cm)},z={(0cm,1cm)},        % cavalier axes 
+     z={(-0.5cm,-0.5cm)},x={(1cm,0cm)},y={(0cm,1cm)},        % cavalier axes 
 %  x={(-0.86cm,-0.5cm)},y={(0.86cm,-0.5cm)},z={(0cm,1cm)}  % isometric axes
   ]
-  % z,x,y
+  % x,y,z
   \def\ha{3}  % A height
   \coordinate (O) at (0,0,0);
-  \coordinate (A) at (0.5,0,2);
+  \coordinate (A) at (0,2,0.5);
   \coordinate (m) at (A);
-  \coordinate (B) at (0,2,2);
-  \draw[-latex] (O) -- (\ha,0,0) node [left]  {$z$};
-  \draw[-latex] (O) -- (0,\ha,0) node [right] {$x$};
-  \draw[-latex] (O) -- (0,0,\ha) node [right] {$y$};
+  \coordinate (B) at (2,2,0);
+  \draw[-latex] (O) -- (\ha,0,0) node [right]  {$x$};
+  \draw[-latex] (O) -- (0,\ha,0) node [right] {$y$};
+  \draw[-latex] (O) -- (0,0,\ha) node [below] {$z$};
   \draw[blue] (A) to[out=-5,in=-80, distance=2.5cm] node [below] {$C$} (B);
   \node at (A) [left] {$A (\underset{A}{x},\underset{A}{y},\underset{A}{z})$};
   \fill (A) circle (2pt);
