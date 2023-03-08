@@ -1,0 +1,109 @@
+\documentclass[12pt, a4paper, oneside]{article}
+\usepackage[%
+    left=1.5cm,%
+    right=1.5cm,%
+    top=2.0cm,%
+    bottom=2.0cm,%
+    % paperheight=11in,%
+    % paperwidth=8.5in%
+]{geometry}%
+\usepackage{refcount}% http://ctan.org/pkg/refcount
+\usepackage{tikz,pgfplots}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage{xepersian}
+\usetikzlibrary{3d}
+\usetikzlibrary{calc}
+
+% tikz and pgfplot for axis
+\pgfplotsset{every axis/.append style={
+                    axis x line=middle,    % put the x axis in the middle
+                    axis y line=middle,    % put the y axis in the middle
+                    axis line style={<->}, % arrows on the axis
+                    xlabel={$x$},          % default put x on x-axis
+                    ylabel={$y$},          % default put y on y-axis
+                    }}
+
+% arrows as stealth fighters
+\tikzset{>=stealth}
+
+\settextfont{Vazirmatn}
+
+% uses "refcount" package. for counting footnotes
+\newcounter{fnotecounter}
+\begin{document}
+%  commands and variables:
+\newcommand\deltavec[1]{\vec{\Delta{#1}}}
+\newcommand\undersetrtl[2]{${\underset{#1}{#2}}$}
+\newcommand\fnote[1]{\footnote[\refstepcounter{fnote}]}
+\section{یادآوری های دبیرستان}
+\subsection{لگاریتم}
+\label{subsec:log}
+لگاریتم، یک عدد در یک پایه، برابر با توانی از پایه است که آن عدد را می دهد.
+\[a^b = c \Leftrightarrow \log_a (c) = b\]
+برای مثال: 
+\[10^3 = 1000 \Leftrightarrow \log_{10} (1000) = 3\]
+در سیستم اعداد دسیمال
+\footnote[1]{
+    در سیستم عدد باینری، 
+    $\log{n}$
+    به معنی لگاریتم n به پایه ی ۲ است.
+    مثل 
+    bigO ی 
+    الگوریتم های
+    divide and conquer
+}
+    ، پایه ی لگاریتم ۱۰ را نمینویسیم. مثال بالا معمولا به صورت زیر نوشته میشود: 
+    \[\log (1000) = 3\]
+\subsubsection{قوانین لگاریتم}
+
+\noindent
+\begin{latin}
+\begin{itemize}
+    \item { $\log_a(x) = \frac{ 1 }{ \log_x(a) }$ }
+    \item { $\log_a(x) = \log_{10}(x)/\log_{10}(a)$ }
+    \item { $\log_a(xy) = \log_a (x) + \log_a(y)$ }
+    \item { $\log_a(\frac{x}{y}) = \log_a (x) - \log_a(y)$ }
+    \item { $\log_a(x^y) = y.\log_a(x)$ }
+    \item { $\log_a (m) = \log_a(n) \Leftrightarrow m = n$ }
+\end{itemize}
+\end{latin}
+
+\subsection{مثلثات}
+\subsubsection{نسبت های مثلثاتی}
+\begin{latin}
+\begin{itemize}
+    \item $\sin^2x + \cos^2x = 1$
+    \item $\sin(x \pm y) = \sin(x)\cos(y) \pm \cos(x)\sin(y)$
+    \item $\cos(x \pm y) = \cos(x)\cos(y) \mp \sin(x)\sin(y)$
+    \item $\sec x= \frac{1}{\cos x}$
+    \item $\csc x= \frac{1}{\sin x}$
+    \item $1+\tan^2x = \sec^2x$
+    \item $1+\cot^2x = \csc^2x$
+\end{itemize}
+\end{latin}
+
+\section{درس های جدید}
+\subsection{اعداد مختلط}
+اعداد مختلط اعدادی هستند که به صورت روبرو نمایش در می آیند: $Z = x + yi$
+که به \undersetrtl{}{x} مولفه حقیقی و به \undersetrtl{}{y} مولفه موهومی گفته میشود.
+
+\undersetrtl{}{y} مولفه ی موهومی است، چون ضریب عدد موهومی \footnote[2]{عدد موهومی(imaginary): $i=\sqrt[]{-1}$} است.
+\subsection{عدد نپر (اویلر)}
+عدد نپر به صورت زیر تعریف میشود:
+\[e=\sum_{n=0}^{\infty} \frac{1}{n!}\]
+لگاریتمی
+{$\overset{\ref{subsec:log}}{}$}
+ که مبنای آن عدد نپر باشد را به صورت زیر تعریف میکنیم: 
+\[\log_e (x) = \ln (x)\]
+\subsection{توابع هایپربولیک}
+توابع هایپربولیک توابعی هستند که بجای دایره ی مثلثاتی به نسبت دو هذلولی واحد متانسب میشوند.
+\begin{tikzpicture}
+    \begin{axis}[
+            xmin=-3,xmax=3,
+        ymin=-3,ymax=3]
+        \addplot [blue,thick,domain=-1.5:1.5] ({cosh(x)}, {sinh(x)});
+        \addplot [blue,thick,domain=-1.5:1.5] ({-cosh(x)}, {sinh(x)});
+    \end{axis}
+\end{tikzpicture}
+\end{document}
