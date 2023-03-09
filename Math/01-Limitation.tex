@@ -10,11 +10,15 @@
 \usepackage{refcount}% http://ctan.org/pkg/refcount
 \usepackage{tikz,pgfplots}
 \usepackage{mathtools}
+\usepackage{amsmath}
 \usepackage{hyperref}
 \usepackage{xepersian}
 \usetikzlibrary{3d}
 \usetikzlibrary{calc}
 
+% declaring \sech and \csch functions
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
 % tikz and pgfplot for axis
 \pgfplotsset{every axis/.append style={
                     axis x line=middle,    % put the x axis in the middle
@@ -70,18 +74,32 @@
 \end{latin}
 
 \subsection{مثلثات}
-\subsubsection{نسبت های مثلثاتی}
+\subsubsection{اتحاد های مثلثاتی}
 \begin{latin}
 \begin{itemize}
     \item $\sin^2x + \cos^2x = 1$
-    \item $\sin(x \pm y) = \sin(x)\cos(y) \pm \cos(x)\sin(y)$
-    \item $\cos(x \pm y) = \cos(x)\cos(y) \mp \sin(x)\sin(y)$
+    \item $\sin (x \pm y) = \sin x \cos y \pm \cos x \sin y $
+    \item $\cos (x \pm y) = \cos x \cos y \mp \sin x \sin y $
     \item $\sec x= \frac{1}{\cos x}$
     \item $\csc x= \frac{1}{\sin x}$
     \item $1+\tan^2x = \sec^2x$
     \item $1+\cot^2x = \csc^2x$
 \end{itemize}
 \end{latin}
+\subsection{حد و پیوستگی}
+\subsubsection{تعریف حد}
+حد، بررسی رفتار تابع $f(x)$ در همسایگی $x=a$ است و به صورت زیر تعریف میشود:
+\[ \lim_{x \to a} f(x)\]
+\subsubsection{حالت های ابهام حد}
+\begin{itemize}
+    \item $\frac{ 0 }{ 0 }$
+    \item $\frac{ \infty }{ \infty }$
+    \item $\infty - \infty$
+    \item $0* \infty$
+    \item $1^\infty$
+    \item $\infty^0$
+    \item $0^\infty$
+\end{itemize}
 
 \section{درس های جدید}
 \subsection{اعداد مختلط}
@@ -97,7 +115,8 @@
  که مبنای آن عدد نپر باشد را به صورت زیر تعریف میکنیم: 
 \[\log_e (x) = \ln (x)\]
 \subsection{توابع هایپربولیک}
-توابع هایپربولیک توابعی هستند که بجای دایره ی مثلثاتی به نسبت دو هذلولی واحد متانسب میشوند.
+توابع هایپربولیک توابعی هستند که بجای دایره ی مثلثاتی به نسبت دو هذلولی افقی واحد متانسب میشوند.
+ 
 \begin{tikzpicture}
     \begin{axis}[
             xmin=-3,xmax=3,
@@ -106,4 +125,32 @@
         \addplot [blue,thick,domain=-1.5:1.5] ({-cosh(x)}, {sinh(x)});
     \end{axis}
 \end{tikzpicture}
+
+نسبت های مثلثاتی هایپربولیک مثل نسبت های مثلثاتی معمولی تعریف و نوشته میشوند، ولی جلوی آنها حرف h برای هایپربولیک بودن می آید.
+
+در توابع هذلولی افقی داریم $x^2 - y^2 = 1$ و میدانیم کسینوس هایپربولیک با ایکس و سینوس هایپربولیک با ایگرگ در رابطه ای که گفته شد متناسب است.
+پس اتحاد مثلثاتی اول را در توابع هایپربولیک به صورت زیر مینویسیم: 
+\[\cosh^2 x - \sinh^2 x = 1\]
+\subsubsection{اتحاد های مثلثاتی هایپربولیک}
+\begin{latin}
+\begin{itemize}
+    \item $\cosh^2 x - \sinh^2 x = 1$
+    \item $\tanh x = \frac{\sinh x}{\cosh x}$
+    \item $\coth x = \frac{\cosh x}{\sinh x}$
+    \item $\sinh x = \frac{e^x - e^{-x}}{2}$
+    \item $\cosh x = \frac{e^x + e^{-x}}{2}$
+    \item $\tanh x = \frac{e^x - e^{-x}}{e^x + e^{-x}}$
+    \item $\coth x = \frac{e^x + e^{-x}}{e^x - e^{-x}}$
+    \item $\csch x = \frac{ 2 }{ e^x - e^{ -x } }$
+    \item $\sech x = \frac{ 2 }{ e^x + e^{ -x } }$
+    \item $\sinh(x \pm y) = \sinh x\cos y \pm \cosh x\sinh y$
+    \item $\cosh(x \pm y) = \cosh x\cosh y \pm \sinh x\sinh y$
+    \item $\tanh(u \pm v) = \frac{ \tanh u \pm \tanh u }{ 1 \pm \tanh u\tanh v }$
+    \item $\tanh u * \coth u = 1$
+    \item $\sech u = \frac{1}{ \cosh u }$
+    \item $\csch u = \frac{1}{\sinh u }$
+    \item $1-\tanh^2x = \sech^2x$
+    \item $1-\coth^2x = -\csch^2x$
+\end{itemize}
+\end{latin}
 \end{document}
