@@ -10,6 +10,7 @@
 \usepackage{refcount}% http://ctan.org/pkg/refcount
 \usepackage{tikz,pgfplots}
 \usepackage{mathtools}
+\usepackage{xcolor}
 \usepackage{amsmath}
 \usepackage{hyperref}
 \usepackage{xepersian}
@@ -21,11 +22,23 @@
 \DeclareMathOperator{\csch}{csch}
 % tikz and pgfplot for axis
 \pgfplotsset{every axis/.append style={
-                    axis x line=middle,    % put the x axis in the middle
-                    axis y line=middle,    % put the y axis in the middle
-                    axis line style={<->}, % arrows on the axis
-                    xlabel={$x$},          % default put x on x-axis
-                    ylabel={$y$},          % default put y on y-axis
+    x=5mm,
+    y=5mm,
+    xtick={-5,-4,...,5},   
+    xmin=-5,
+    xmax=5,
+    xlabel={\tiny $x$},
+    axis x line=middle,
+    ytick={-5,-4,...,5},
+    tick label style={font=\tiny},
+    ymin=-5,
+    ymax=5,
+    ylabel={\scriptsize $f(x)$},
+    axis y line=middle,
+    no markers,
+    samples=100,
+    domain=-5:5,
+    restrict y to domain=-10:10
                     }}
 
 % arrows as stealth fighters
@@ -34,12 +47,14 @@
 \settextfont{Vazirmatn}
 
 % uses "refcount" package. for counting footnotes
-\newcounter{fnotecounter}
 \begin{document}
-%  commands and variables:
+%  commands and macros:
 \newcommand\deltavec[1]{\vec{\Delta{#1}}}
 \newcommand\undersetrtl[2]{${\underset{#1}{#2}}$}
-\newcommand\fnote[1]{\footnote[\refstepcounter{fnote}]}
+\newcommand\lxa[1]{\lim_{x \to a} #1}
+\newcommand\linf[1]{\lim_{x \to \infty} #1}
+\newcommand\Lone[0]{\lxa f(x)}
+\newcommand\Ltwo[0]{\lxa g(x)}
 \section{یادآوری های دبیرستان}
 \subsection{لگاریتم}
 \label{subsec:log}
@@ -48,7 +63,7 @@
 برای مثال: 
 \[10^3 = 1000 \Leftrightarrow \log_{10} (1000) = 3\]
 در سیستم اعداد دسیمال
-\footnote[1]{
+\footnote{
     در سیستم عدد باینری، 
     $\log{n}$
     به معنی لگاریتم n به پایه ی ۲ است.
@@ -100,13 +115,98 @@
     \item $\infty^0$
     \item $0^\infty$
 \end{itemize}
+\subsubsection{قوانین حد}
+\begin{latin}
+    \begin{enumerate}
+            \item $f(x) = c
+                \footnote{
+                \begin{persian}
+                    در اینجا c به معنی عدد ثابت است.
+                \end{persian}} 
+            \Leftrightarrow \Lone = c$
+        \item $\lxa cf(x) = c\Lone$
+        \item $\lxa cf(x) \pm bg(x) = c\Lone \pm b\Ltwo$
+        \item $\lxa f(x).g(x) = \Lone.\Ltwo$
+        \item $\lxa \frac{f(x)}{g(x)} = \frac{ \Lone }{ \Ltwo }$
+        \item $\lxa | f(x) | = | \Lone |$
+        \item if $n=2k \Leftrightarrow \Lone \ge 0:
+         \lxa \sqrt[n]{ f(x) } = \sqrt[n]\Lone$
+        \item $\lxa f(x)^n = (\Lone)^n$
+        \item {
+            if $\lxa g(x) = \lxa h(x) = L$,
+            if $g(x) \le f(x) \le h(x) \Rightarrow $ 
+            $\lxa f(x) = L$
+            \footnote{\begin{persian}
+                قاعده فشردگی
+            \end{persian}}
+        }
+
+    \end{enumerate}
+\end{latin}
+\subsubsection{قوانین هم ارزی}
+\begin{latin}
+    \begin{enumerate}
+        \item $\lim_{u\to0} {\sqrt[n]{1+u} = 1+\frac{u}{n}}$
+        \item $\lim_{x\to0} {(1+x)^{ \frac{1}{x} }} = e$
+        \item $\linf {(1+\frac{1}{x})^x} = e$
+        \item $\lim_{x\to 0} {\frac{a^x-1}{x}} = \ln(a)$
+        \item $\lim_{x\to 0} \frac{ln(1+x)}{x} = \ln a$
+        \item $\lim_{ x\to1 } \frac{ x^r - 1 }{ x-1 } = r$
+        \item $\lim_{ x\to1 } \frac{ x^p - 1 }{ x^q - 1 } = \frac{p}{q}$
+    \end{enumerate}
+\end{latin}
+
+\subsubsection{حد در بینهایت}
+حد در بینهایت زمانی است که حد را در نقطه ی $a=\infty$ میسنجیم. حد در بینهایت، مجانب افقی را در صورت وجود بررسی میکند.
+برای مثال، تابع $\frac{1}{x}$ در نقطه $y=0$ مجانب افقی است:
+
+\begin{tikzpicture}
+\begin{axis}[
+]
+\addplot[thick, samples=400] (x,{1/x});
+\end{axis}
+\end{tikzpicture}
+
+\noindent
+وجود مجانب افقی به صورت زیر تعریف میشود:
+
+\begin{latin}
+\begin{center}
+    if $\linf f(x) = L$
+\end{center}
+\end{latin}
+\paragraph{
+قوانین محاسبه حد در بینهایت:
+\\}
+قاعده ی پرتوان، در حد در بینهایت اجرا میشود. به این معنی است که ایکس هایی که توان های بیشتری دارند از صورت و مخرج را نگه میداریم و بقیه را حذف میکنیم.
+بعد از اینکار، از قوانین زیر برای حل حدی مانند حد زیر استفاده میکنیم: 
+\[\linf {\frac{a_nx^n}{b_mx^m}}\]
+
+\begin{latin}
+\begin{itemize}
+    \item $n > m = \pm \infty$
+    \item $n < m = 0$
+    \item $n = m = \frac{ a_n }{ b_m }$
+\end{itemize}
+\end{latin}
+
+برای مثال، $\linf \frac{3x^3+x^2+8x+17}{12x^3+17(x^2+9x)}$ با قاعده ی پرتوان به شکل $\linf \frac{3x^3}{12x^3}$ ساده میشود و با سومین قانون حد بینهایت حد و همون مجانب افقی را محاسبه میکنیم:
+\[\linf \frac{3x^3}{12x^3} = \textcolor{red}{ \frac{3}{12} }\]
+
+\begin{tikzpicture}
+\begin{axis}[
+]
+\addplot[thick, samples=400] (x,{(3*x^3+x^2+8*x+17)/(12*x^3+17*(x^2+9*x))});
+\addplot[samples=400,red] (x,3/12);
+\end{axis}
+\end{tikzpicture}
 
 \section{درس های جدید}
 \subsection{اعداد مختلط}
 اعداد مختلط اعدادی هستند که به صورت روبرو نمایش در می آیند: $Z = x + yi$
 که به \undersetrtl{}{x} مولفه حقیقی و به \undersetrtl{}{y} مولفه موهومی گفته میشود.
 
-\undersetrtl{}{y} مولفه ی موهومی است، چون ضریب عدد موهومی \footnote[2]{عدد موهومی(imaginary): $i=\sqrt[]{-1}$} است.
+\undersetrtl{}{y} مولفه ی موهومی است، چون ضریب عدد موهومی \footnote{عدد موهومی(imaginary): $i=\sqrt[]{-1}$} است.
 \subsection{عدد نپر (اویلر)}
 عدد نپر به صورت زیر تعریف میشود:
 \[e=\sum_{n=0}^{\infty} \frac{1}{n!}\]
@@ -118,11 +218,9 @@
 توابع هایپربولیک توابعی هستند که بجای دایره ی مثلثاتی به نسبت دو هذلولی افقی واحد متانسب میشوند.
  
 \begin{tikzpicture}
-    \begin{axis}[
-            xmin=-3,xmax=3,
-        ymin=-3,ymax=3]
-        \addplot [blue,thick,domain=-1.5:1.5] ({cosh(x)}, {sinh(x)});
-        \addplot [blue,thick,domain=-1.5:1.5] ({-cosh(x)}, {sinh(x)});
+    \begin{axis}[]
+        \addplot [blue,thick,samples=200] ({cosh(x)}, {sinh(x)});
+        \addplot [blue,thick,samples=200] ({-cosh(x)}, {sinh(x)});
     \end{axis}
 \end{tikzpicture}
 
