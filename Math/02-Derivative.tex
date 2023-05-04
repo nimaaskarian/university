@@ -1,0 +1,63 @@
+\documentclass[fleqn,12pt, a4paper, oneside]{article}
+\usepackage[%
+    left=1.5cm,%
+    right=1.5cm,%
+    top=2.0cm,%
+    bottom=2.0cm,%
+    % paperheight=11in,%
+    % paperwidth=8.5in%
+]{geometry}%
+\usepackage{refcount}% http://ctan.org/pkg/refcount
+\usepackage{tikz,pgfplots}
+\usepackage{mathtools}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{xepersian}
+\usetikzlibrary{3d}
+\usetikzlibrary{calc}
+% declaring \sech and \csch functions
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arccot}{arccot}
+\settextfont{Vazirmatn}
+\begin{document}
+\tableofcontents
+\newpage
+\section{مشتق}
+به آهنگ تغییرات تابع، یعنی شیب خط مماس بر یک تابع، مشتق آن تابع میگویند. که به صورت 
+\subsection{تعریف مشتق}
+    \[ f'(x) = \lim_{h\to 0} \frac{f(x)-f(x+h)}{h} \]
+    \[ f'(a) = \lim_{x\to a} \frac{f(x)-f(a)}{x-a} \]
+
+\subsection{قوانین مشتق}
+    \[u,v = f(x); a \in \mathbb{R} \]
+    \[ (u\pm v)'=u'\pm v' \]
+    \[ (au)'=au'\]
+    \[(u \cdot v)'=u'\cdot v+v' \cdot u\]
+    \[(\frac{ u }{ v })'=\frac{u'\cdot v-v' \cdot u}{v^2}\]
+\subsection{فرمول های مشتق}
+    \subsubsection{فرمول های جبری مشتق}
+    \[(u^n)'=nu'u^{n-1}\]
+    \[|u|' = \frac{u'\cdot u}{|u|}\]
+    \[(\frac{ au+b }{ cu+d })'=\frac{ad-bc}{(cu+d)^2}u'\]
+    \[(a^u)'=u'a^u\ln{a}\]
+    \[(\ln u)' = \frac{u'}{u}\]
+    \subsubsection{فرمول های مثلثاتی مشتق}
+    \[ \sin{u}' = u'\cos{u}\]
+    \[ \cos{u}' = -u'\sin{u}\]
+    \[ \tan{u}' = u'(1+\cot^2{u})\]
+    \[ \cot{u}' = -u'(1+\tan^2{u})\]
+    \[ \sec{u}' = u'\sin{u}\cdot\sec^2{u}\]
+    \[ \csc{u}' = u'\cos{u}\cdot\csc^2{u}\]
+    \[\arcsin{u}' = \frac{u'}{\sqrt{1-u^2}}\]
+    \[\arccos{u}' = \frac{-u'}{\sqrt{1-u^2}}\]
+    \[\arctan{u}' = \frac{u'}{1+u^2}\]
+    \[\arccot{u}' = \frac{-u'}{1+u^2}\]
+    \subsubsection{فرمول های هذلولی مشتق}
+    فرمول های هذلولی،‌ مثل فرمول های مثلثاتی هستند، با تفاوت های زیر: (سینوس تفاوتی ندارد)
+    \[ \sinh{u}' = u'\cosh{u}\]
+    \[ \cosh{u}' = u'\sinh{u}\]
+    \[ \tanh{u}' = u'(1-\coth^2{u})\]
+    \[ \coth{u}' = u'(1-\tanh^2{u})\]
+\end{document}

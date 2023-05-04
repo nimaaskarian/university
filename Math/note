@@ -1,0 +1,121 @@
+ریاضی
+لگاریتم
+لگاریتم e (ln)
+log(x,a) = 1/log(a,x)
+log(x,a) = log(x,10)/log(a,10)
+secx = 1/cosx
+cscx = 1/sinx
+1+tg^2x = sec^2x
+1+cotg^2x = csc^2x
+sin(a+-b) = sina*cosb +- cosa*sinb
+cos(a+-b) = cosa*cosb -+ sina*sinb
+توابع هایپربولیک (هذلولی)
+x^2 - y^2 = 1
+coshx^2 - sinhx^2 = 1
+tghx = sinhx / coshx
+cothx = coshx / sinhx
+sinhx = (e^x - e^-x)/2
+coshx = (e^x + e^-x)/2
+tghx = (e^x - e^-x)/(e^x + e^-x)
+cotghx = (e^x + e^-x)/(e^x - e^-x)
+cschx = 2/(e^x - e^-x) 
+sechx = 2/(e^x + e^-x) 
+sinh(a+-b) = sinha*coshb +- cosha*sinb
+cosh(a+-b) = cosha*coshb +- sinha*sinhb
+tgh(u+-v) = (tghu +- tghu) / (1+-tghu*tghv)
+tghu * cotgh = 1
+sechu = 1/coshu
+cschu = 1/sinhu
+[Image 46.png]
+(لگاریتم هارو مرور کن)
+مثال:
+
+[Image 48.jpg]
+[Image 49.png]
+1-tgh^2x = sec^2x
+1-cotgh^2x = -csx^2x
+توابع معکوس مثلثاتی:
+y = Arc(sinx)
+
+[Image 50.jpg]
+بررسی رفتار تابع در همسایگی x=a 
+حد در صورت وجود یکتاست
+سور عمومی
+سور وجودی
+حالت های ابهام:
+0/0
+inf/inf
+inf - inf
+0* inf
+1^inf
+inf^0
+0^inf
+
+
+[Image 51.jpg]
+قوانین حد:
+\lxa = lim(x->a)
+\lxa f(x) = \Lone
+\lxa g(x) = \Ltwo
+f(x) = c
+=> \Lone = c
+\lxa cf(x) = c.\Lone
+\lxa cf(x) +- bg(x) = c\Lone +- b\Ltwo
+\lxa f(x).g(x) = \Lone.\Ltwo
+\lxa f(x)/g(x) = \Lone/\Ltwo
+\lxa | f(x) | = | \Lone |
+\lxa rad(n, f(x)) = rad(n, \Lone)
+if n=2k <=> \Lone >= 0
+
+\lxa f(x)^n = \Lone^n
+
+قاعده فشردگی:
+
+[Image 53.jpg]
+
+[Image 54.jpg]
+
+مثال:
+[Image 52.jpg]
+حد در بینهایت:
+قاعده پرتوان
+lim anx^n/bmx^m
+n > m = +- inf
+n < m = 0 حدی
+n = m = an/bm
+مجانب افقی در صورت وجود
+if lim(x->inf) f(x) = \Lone
+حد بینهایت: 
+مجانب قائم در صورت وجود
+if \lxa f(x) = +-inf
+
+قوانین هم ارزی:
+1) lim(u->0) rad(n, 1+u) =  1+u/n
+2) lim(x->inf) (1+x) ^ 1/x = e
+3) lim(x->0) (1+1/x) ^ x = e
+4) lim (x->inf) (a^x -1)/x = ln(a)
+5) lim (x->0) ln(1+x)/x = log(e,a)
+6) lim (x->1) (x^r - 1)/(x-1) = r
+7) lim (x->1) (x^p - 1)/(x^q - 1) = p/q 
+(بالایی چاق و لاغره)
+
+[Image 55.jpg]
+پیوستگی:
+حد در بینهایت پیوستگی نداره
+سه شرط به ترتیب پیوستگی:
+1)
+x=a عضو Df
+f(a) = L
+2) \lxa f(x) موجود باشد
+3) \lxa f(x) = f(a) = L
+
+ریاضی عمومی ۱: نوشته دکتر حمید تولایی
+حساب دیفرانسیل و انتگرال نوشته جرج توماس (پی دی اف)
+ریاضی یک دکتر فرامرزی
+ریاضی یک دکتر نیکوکار
+
+تمرینارو بنویس
+تمرینایی که Z داره اعداد مختلطه
+
+ایمیل:
+salimi.arezoo@gmail.com
